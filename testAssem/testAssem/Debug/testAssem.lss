@@ -1,0 +1,11 @@
+
+AVRASM ver. 2.2.6  D:\EDU\PROJECTS\_MSA-AVR_COMPLETE PROJECTS\testAssem\testAssem\main.asm Fri Oct 13 13:40:18 2017
+
+[builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc'
+D:\EDU\PROJECTS\_MSA-AVR_COMPLETE PROJECTS\testAssem\testAssem\main.asm(11): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\M32DEF.INC'
+[builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc'
+D:\EDU\PROJECTS\_MSA-AVR_COMPLETE PROJECTS\testAssem\testAssem\main.asm(11): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\M32DEF.INC'
+D:\EDU\PROJECTS\_MSA-AVR_COMPLETE PROJECTS\testAssem\testAssem\main.asm(21): error: Overlap in .cseg: addr=0x0 conflicts with 0x0:0x4
+D:\EDU\PROJECTS\_MSA-AVR_COMPLETE PROJECTS\testAssem\testAssem\main.asm(22): error: Overlap in .cseg: addr=0x1 conflicts with 0x0:0x4
+D:\EDU\PROJECTS\_MSA-AVR_COMPLETE PROJECTS\testAssem\testAssem\main.asm(31): error: Overlap in .cseg: addr=0x2 conflicts with 0x0:0x4
+D:\EDU\PROJECTS\_MSA-AVR_COMPLETE PROJECTS\testAssem\testAssem\main.asm(32): error: Overlap in .cseg: addr=0x3 conflicts with 0x0:0x4

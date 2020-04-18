@@ -1,0 +1,29 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.6</VERSION>
+ <DEVICE>"ATmega32"</DEVICE>
+ <WORKING_DIR>D:\EDU\PROJECTS\_MSA-AVR_COMPLETE PROJECTS\testAssem\testAssem\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\EDU\PROJECTS\_MSA-AVR_COMPLETE PROJECTS\testAssem\testAssem\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\M32DEF.INC</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\EDU\PROJECTS\_MSA-AVR_COMPLETE PROJECTS\testAssem\testAssem\Debug\testAssem.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>testAssem.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>testAssem.map</FILE>
+  <FILE>testAssem.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <LOOP><FILE>D:\EDU\PROJECTS\_MSA-AVR_COMPLETE PROJECTS\testAssem\testAssem\main.asm</FILE><LINE>29</LINE></LOOP>
+  <OVER><FILE>D:\EDU\PROJECTS\_MSA-AVR_COMPLETE PROJECTS\testAssem\testAssem\main.asm</FILE><LINE>33</LINE></OVER>
+ </LABELS>
+</ASSEMBLER_INFO>
