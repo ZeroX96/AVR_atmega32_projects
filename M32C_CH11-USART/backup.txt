@@ -1,0 +1,138 @@
+/*
+ * M32C_CH11-USART.c
+ *
+ * Created: 23/04/2018 05:19:04
+ * Author : Mahmoud
+ */ 
+
+#include <avr/io.h>
+#define F_CPU 8000000UL
+
+void adc_init(void)
+{
+	DDRA=0xf0;   // as wont use more than 4 channels >>>edit if needed
+	ADCSRA=(1<<ADEN)|(1<<ADPS0)|(1<<ADPS1)|(1<<ADPS2);
+	ADMUX=(1<<REFS0)|(1<<ADLAR);
+}
+
+uint8_t adc_read(uint8_t ch)
+{
+	ch &= 0x07;
+	ADMUX &= 0b01100000;
+	ADMUX |= ch;
+	
+	ADCSRA |= (1<<ADSC);
+	while(!(ADCSRA & (1<<ADIF)))
+	;
+	ADCSRA |=(1<<ADIF);
+	return ADCH;
+	
+}
+void usart_init (void )
+{
+	UCSRB=(1<<TXEN)|(1<<RXEN);
+	UCSRC=(1<<URSEL)|(1<<UCSZ0)|(1<<UCSZ1);
+	UBRRL=0x33; //9600 @ 8mhz
+}
+
+void usart_send(unsigned char ch)
+{
+	while (!(UCSRA &(1<<UDRE)))
+	;
+	UDR=ch;
+}
+
+unsigned char usart_recve()
+{	static unsigned char temp;
+	while(!(UCSRA & (1<<RXC)))
+	;
+	temp=UDR;
+	return temp;
+}
+
+void frwrd(void )
+{
+	PORTA|= 0b01010000;
+}
+void bkwrd(void )
+{
+	PORTA|=0b10100000;
+}
+void lft(void )
+{
+	PORTA|=0b10010000;
+}
+void rit(void )
+{
+	PORTA|=0b01100000;
+}
+void stp()
+{
+	PORTA|=0b00000000;
+}
+int main(void)
+{
+	usart_init();
+	adc_init();
+	unsigned char temp;
+	unsigned char adc_temp;
+	
+    while (1) 
+    {
+		
+		temp=usart_recve();
+		if(temp == 'w')
+		{
+			adc_temp=adc_read(0);
+			frwrd();
+			
+			usart_send('u');
+			usart_send('p');
+			usart_send('\n');
+			
+		}
+		else if (temp == 's')
+		{
+			bkwrd();
+			
+			usart_send('d');
+			usart_send('n');
+			usart_send('\n');
+		}
+		else if (temp == 'a')
+		{
+			lft();
+			
+			usart_send('l');
+			usart_send('t');
+			usart_send('\n');
+		}
+		else if (temp == 'd')
+		{
+			rit();
+			
+			usart_send('r');
+			usart_send('t');
+			usart_send('\n');
+		}
+		else if (temp == 'o')
+		{
+			stp();
+			
+			usart_send('o');
+			usart_send('f');
+			usart_send('f');
+			usart_send('\n');
+		}
+		/*
+		usar_send('m');
+		usar_send('s');
+		usar_send('a');
+		usar_send(' ');*//*
+		temp=usart_recve();
+		temp-=48;
+		PORTA=temp;*/
+	
+	}
+}
+

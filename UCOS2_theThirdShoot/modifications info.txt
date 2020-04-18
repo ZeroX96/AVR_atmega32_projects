@@ -1,0 +1,18 @@
+to revise all the changes i made use this //modified_by_msa_to_meet_the_atmega32_constrains
+to check the remaining code variables 	  //test_later_to_meet_the_atmega32_constrains
+
+/*************************************************************************************************/
+app_cfg_.h	>>completly checked/modefied and now have no problems.
+app_hooks.c	>>completly checked/modefied and now have no problems.
+app_vect.s	>>completly checked/modefied and now have no problems.
+avr_isr.s	>>completly checked/modefied and now have no problems.
+includes.h	>>completly checked/modefied and now have no problems.
+-----------
+os_cpu.h	>>completly checked/modefied and now have no problems.
+os_cpu_a.s	>>completly checked/modefied and now have no problems.
+os_cpu_c.c	>>completly checked/modefied and now have no problems.
+os_cpu_i.h	>>completly checked/modefied and now have no problems. 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////PROJECT_TERMINATED!
+20/11/18
+

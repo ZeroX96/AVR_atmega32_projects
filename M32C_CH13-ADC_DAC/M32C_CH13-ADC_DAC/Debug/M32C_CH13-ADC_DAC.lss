@@ -1,0 +1,140 @@
+
+M32C_CH13-ADC_DAC.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000b2  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000106  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00000106  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000138  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000030  00000000  00000000  00000174  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000608  00000000  00000000  000001a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000594  00000000  00000000  000007ac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000244  00000000  00000000  00000d40  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000044  00000000  00000000  00000f84  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000002f3  00000000  00000000  00000fc8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000005b  00000000  00000000  000012bb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000020  00000000  00000000  00001316  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 47 00 	call	0x8e	; 0x8e <main>
+  64:	0c 94 57 00 	jmp	0xae	; 0xae <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <adc_init>:
+
+#include <avr/io.h>
+
+void adc_init(void)
+{
+	ADCSRA=(1<<ADEN)|(1<<ADPS0)|(1<<ADPS1)|(1<<ADPS2);
+  6c:	87 e8       	ldi	r24, 0x87	; 135
+  6e:	86 b9       	out	0x06, r24	; 6
+	ADMUX=(1<<REFS0)|(1<<ADLAR);
+  70:	80 e6       	ldi	r24, 0x60	; 96
+  72:	87 b9       	out	0x07, r24	; 7
+  74:	08 95       	ret
+
+00000076 <adc_read>:
+}
+
+uint8_t adc_read(uint8_t channle)
+{
+	channle &= 0b00000111;
+	ADMUX   &= 0b11111000;
+  76:	97 b1       	in	r25, 0x07	; 7
+  78:	98 7f       	andi	r25, 0xF8	; 248
+  7a:	97 b9       	out	0x07, r25	; 7
+	ADMUX   |=channle;
+  7c:	97 b1       	in	r25, 0x07	; 7
+  7e:	87 70       	andi	r24, 0x07	; 7
+  80:	98 2b       	or	r25, r24
+  82:	97 b9       	out	0x07, r25	; 7
+	ADCSRA  |=(1<<ADSC);
+  84:	36 9a       	sbi	0x06, 6	; 6
+	while(!(ADCSRA &(1<<ADIF)));
+  86:	34 9b       	sbis	0x06, 4	; 6
+  88:	fe cf       	rjmp	.-4      	; 0x86 <adc_read+0x10>
+	return ADCH;
+  8a:	85 b1       	in	r24, 0x05	; 5
+}
+  8c:	08 95       	ret
+
+0000008e <main>:
+
+int main(void)
+{
+	adc_init();
+  8e:	0e 94 36 00 	call	0x6c	; 0x6c <adc_init>
+    DDRB=0xff;
+  92:	8f ef       	ldi	r24, 0xFF	; 255
+  94:	87 bb       	out	0x17, r24	; 23
+	DDRD=0xff;
+  96:	81 bb       	out	0x11, r24	; 17
+	DDRA=0x00;
+  98:	1a ba       	out	0x1a, r1	; 26
+    while (1) 
+    {
+		uint8_t ch0=adc_read(0);
+  9a:	80 e0       	ldi	r24, 0x00	; 0
+  9c:	0e 94 3b 00 	call	0x76	; 0x76 <adc_read>
+  a0:	c8 2f       	mov	r28, r24
+		uint8_t ch1=adc_read(1);
+  a2:	81 e0       	ldi	r24, 0x01	; 1
+  a4:	0e 94 3b 00 	call	0x76	; 0x76 <adc_read>
+		PORTB=ch0;
+  a8:	c8 bb       	out	0x18, r28	; 24
+		PORTD=ch1;
+  aa:	82 bb       	out	0x12, r24	; 18
+  ac:	f6 cf       	rjmp	.-20     	; 0x9a <main+0xc>
+
+000000ae <_exit>:
+  ae:	f8 94       	cli
+
+000000b0 <__stop_program>:
+  b0:	ff cf       	rjmp	.-2      	; 0xb0 <__stop_program>

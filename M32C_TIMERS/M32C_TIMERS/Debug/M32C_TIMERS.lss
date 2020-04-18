@@ -1,0 +1,125 @@
+
+M32C_TIMERS.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000009a  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000000ee  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  000000ee  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000120  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000020  00000000  00000000  0000015c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000056e  00000000  00000000  0000017c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000004f9  00000000  00000000  000006ea  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000218  00000000  00000000  00000be3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000024  00000000  00000000  00000dfc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000002cd  00000000  00000000  00000e20  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000010  00000000  00000000  000010ed  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
+  64:	0c 94 4b 00 	jmp	0x96	; 0x96 <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <main>:
+#include <avr/io.h>
+
+
+int main(void)
+{
+	DDRA=0xff;
+  6c:	8f ef       	ldi	r24, 0xFF	; 255
+  6e:	8a bb       	out	0x1a, r24	; 26
+	
+    
+    while (1) 
+    {
+		PORTA=0xff;
+  70:	9f ef       	ldi	r25, 0xFF	; 255
+		TCNT0=0x00;
+		TCCR0=0x1;
+  72:	81 e0       	ldi	r24, 0x01	; 1
+	DDRA=0xff;
+	
+    
+    while (1) 
+    {
+		PORTA=0xff;
+  74:	9b bb       	out	0x1b, r25	; 27
+		TCNT0=0x00;
+  76:	12 be       	out	0x32, r1	; 50
+		TCCR0=0x1;
+  78:	83 bf       	out	0x33, r24	; 51
+		while(!(TIFR&(1<<TOV0)));
+  7a:	08 b6       	in	r0, 0x38	; 56
+  7c:	00 fe       	sbrs	r0, 0
+  7e:	fd cf       	rjmp	.-6      	; 0x7a <main+0xe>
+		TCCR0=0;
+  80:	13 be       	out	0x33, r1	; 51
+		TCCR0=(1<<TOV0);
+  82:	83 bf       	out	0x33, r24	; 51
+		PORTA=0x00;
+  84:	1b ba       	out	0x1b, r1	; 27
+		TCNT0=0x00;
+  86:	12 be       	out	0x32, r1	; 50
+		TCCR0=0x1;
+  88:	83 bf       	out	0x33, r24	; 51
+		while(!(TIFR&(1<<TOV0)));
+  8a:	08 b6       	in	r0, 0x38	; 56
+  8c:	00 fe       	sbrs	r0, 0
+  8e:	fd cf       	rjmp	.-6      	; 0x8a <main+0x1e>
+		TCCR0=0;
+  90:	13 be       	out	0x33, r1	; 51
+		TIFR=(1<<TOV0);
+  92:	88 bf       	out	0x38, r24	; 56
+	}
+  94:	ef cf       	rjmp	.-34     	; 0x74 <main+0x8>
+
+00000096 <_exit>:
+  96:	f8 94       	cli
+
+00000098 <__stop_program>:
+  98:	ff cf       	rjmp	.-2      	; 0x98 <__stop_program>

@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "xmega_ucos-ii", "xmega_ucos-ii\xmega_ucos-ii_6_2.cproj", "{7147FCBA-5CB0-4AAD-AD2D-C224BF6C27FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7147FCBA-5CB0-4AAD-AD2D-C224BF6C27FD}.Release|AVR.ActiveCfg = Release|AVR
+		{7147FCBA-5CB0-4AAD-AD2D-C224BF6C27FD}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
