@@ -1,0 +1,33 @@
+;
+; M32ASSEM_BUTTON+LED.asm
+;
+; Created: 15-Oct-17 03:40:49 PM
+; Author : Mahmoud
+;
+.INCLUDE "M32DEF.INC"
+.ORG 0
+
+LDI R16,HIGH (RAMEND)
+OUT SPH,R16
+LDI R17,LOW (RAMEND)
+OUT SPL,R16
+
+; Replace with your application code
+MAIN:
+CBI DDRC,0
+SBI DDRC,1
+SBI DDRC,2
+
+
+LOOP:
+	SBIS PINC,0
+	RJMP OFF
+	SBI  PORTC,1
+	CBI  PORTC,2
+   RJMP LOOP
+
+OFF :
+	CBI PORTC,1
+	SBI PORTC,2
+	RJMP LOOP
+

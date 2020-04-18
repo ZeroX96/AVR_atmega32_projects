@@ -1,0 +1,40 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.6</VERSION>
+ <DEVICE>"ATmega32"</DEVICE>
+ <WORKING_DIR>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\m32def.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\avrasm\inc\M32DEF.INC</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\Debug\M32ASSEM_LedMatrixAcaseStudy.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>M32ASSEM_LedMatrixAcaseStudy.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>M32ASSEM_LedMatrixAcaseStudy.map</FILE>
+  <FILE>M32ASSEM_LedMatrixAcaseStudy.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>31</LINE></MAIN>
+  <FRAME_1><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>33</LINE></FRAME_1>
+  <OUT_FRAME_1><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>46</LINE></OUT_FRAME_1>
+  <FRAME_2><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>39</LINE></FRAME_2>
+  <OUT_FRAME_2><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>70</LINE></OUT_FRAME_2>
+  <GET_ALL1><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>50</LINE></GET_ALL1>
+  <UP1><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>95</LINE></UP1>
+  <DWN><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>101</LINE></DWN>
+  <DELAY><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>109</LINE></DELAY>
+  <GET_ALL2><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>74</LINE></GET_ALL2>
+  <UP2><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>98</LINE></UP2>
+  <LOOP_1><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>111</LINE></LOOP_1>
+  <LOOP_2><FILE>D:\WORK\PROJECTS\AVR_PROJECTS\NEW\M32ASSEM_LedMatrixAcaseStudy\M32ASSEM_LedMatrixAcaseStudy\main.asm</FILE><LINE>112</LINE></LOOP_2>
+ </LABELS>
+</ASSEMBLER_INFO>
